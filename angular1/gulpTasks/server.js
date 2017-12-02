@@ -1,10 +1,9 @@
 const gulp = require('gulp')
-const watch = require('gulp-watch')
 
-gulp.task('watch', => {
+gulp.task('watch', () => {
 
 })
 
-gukp.task('server', ['watch'], () => {
+gulp.task('server', [watch], () => {
 
 })
