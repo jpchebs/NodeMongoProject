@@ -9,7 +9,7 @@
     "production": "gulp --production"
   },
   "keywords": [],
-  "author": "João Chér",
+  "author": "João P Chér",
   "license": "ISC",
   "devDependencies": {
     "admin-lte": "2.3.11",
