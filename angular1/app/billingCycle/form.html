@@ -13,7 +13,8 @@
     <button class="btn btn-info"
     ng-if="bcCtrl.tabUpdate">Alterar</button>
     <button class="btn btn-danger"
-    ng-if="bcCtrl.tabDelete">Excluir</button>
-    <button class="btn btn-default">Cancelar</button>
+    ng-if="bcCtrl.tabDelete" ng-click="bcCtrl.delete()">Excluir</button>
+    <button class="btn btn-default"
+    ng-click="bcCtrl.refresh()">Cancelar</button>
   </div>
 </div>
