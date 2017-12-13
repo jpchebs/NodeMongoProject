@@ -32,6 +32,23 @@
       tabs.show(vm, {tabUpdate: true})
     }
 
+    // Função para atualizar objeto
+    vm.update = function() {
+      // Definindo a url ja criada acima e concatenando com a url do objeto requerido
+      const updateUrl = `${url}/${vm.billingCycle._id}`
+      // Acionando o service HTTP passando o método put
+      // Passa a url ja definida e o objeto 'billingCycle' 'set' em showTabUpdate
+      $http.put(updateUrl, vm.billingCycle).then(function(response) {
+        // Zera os objetos e retorna para lista de objetos
+        vm.refresh()
+        // Exibindo mensagem de sucesso
+        msgs.addSuccess('Operação realizada com Sucesso!')
+        // Exibindo mensagem de erro(s) caso nao seja sucesso
+      }).catch(function(response) {
+        msgs.addError(response.data.error)
+      })
+    }
+
     vm.showTabDelete = function(billingCycle) {
       vm.billingCycle = billingCycle
       tabs.show(vm, {tabDelete: true})

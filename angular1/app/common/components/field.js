@@ -6,7 +6,7 @@ angular.module('primeiraApp').component('field', {
     grid: '@',
     model: '=',
     placeholder: '@',
-    readonly: '<'
+    readonly: '<',
   },
   controller: [
     'gridSystem',
