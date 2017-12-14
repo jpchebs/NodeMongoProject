@@ -94,13 +94,10 @@
     vm.deleteCredit = function(index) {
       // Por regra da aplicação, deve haver pelo menos um elemento
       // O tamanho do array (lista) de creditos deve ser maior que 1
-      console.log('antes');
       if (vm.billingCycle.credits.lenght > 1) {
-        console.log('dentro');
         // Passando o indice e a quantidade de elementos a serem excluidos
         vm.billingCycle.credits.splice(index, 1)
       }
-      console.log('depois');
     }
 
     vm.addDebt = function(index) {
