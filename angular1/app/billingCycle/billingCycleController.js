@@ -94,7 +94,11 @@
     vm.deleteCredit = function(index) {
       // Por regra da aplicação, deve haver pelo menos um elemento
       // O tamanho do array (lista) de creditos deve ser maior que 1
+<<<<<<< HEAD
       if (vm.billingCycle.credits.length > 1) {
+=======
+      if (vm.billingCycle.credits.lenght > 1) {
+>>>>>>> 7fa75cb5f75afddc7592e5c62a3a605fdfb5a8d8
         // Passando o indice e a quantidade de elementos a serem excluidos
         vm.billingCycle.credits.splice(index, 1)
       }
