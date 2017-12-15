@@ -5,7 +5,7 @@
   ])
 
   function DashboardController($http) {
-  const vm = this
+    const vm = this
     vm.getSummary = function() {
       const url = 'http://localhost:3003/api/billingSummary'
       $http.get(url).then(function(response) {
