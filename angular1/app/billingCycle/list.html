@@ -10,9 +10,9 @@
     </thead>
     <tbody>
       <tr ng-repeat="billingCycle in bcCtrl.billingCycles">
-        <td>{{ billingCycle.name }}</td>
-        <td>{{ billingCycle.month }}</td>
-        <td>{{ billingCycle.year }}</td>
+        <td>{{:: billingCycle.name }}</td> <!-- {:: 'binding'} '::' realiza o bind uma única vez -->
+        <td>{{:: billingCycle.month }}</td>
+        <td>{{:: billingCycle.year }}</td>
         <td class="table-actions">
           <button class="btn btn-warning" ng-click="bcCtrl.showTabUpdate(billingCycle)">
             <i class="fa fa-pencil"></i></button>
