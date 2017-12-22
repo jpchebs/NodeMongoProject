@@ -13,16 +13,20 @@
 
     // Função para manter os objeto atualizados na tela
     vm.refresh = function() {
+      // Obtem o valor da página informada pelo usuário
       const page = parseInt($location.search().page) || 1
+      // Passanda a chamada de páginas para o 'backend'
+      // Usando os filtros 'skip' e 'limit' (node-restful)
+      // Usando o parâmetro '?page' na página route (ui-route)
       $http.get(`${url}?skip=${(page - 1) * 10}&limit=10`).then(function(response) {
         vm.billingCycle = {credits: [{}], debts: [{}]}
         vm.billingCycles = response.data
         vm.calculateValues()
-        tabs.show(vm, {tabList: true, tabCreate: true})
 
         // Retorna a quantiade de registros que existem na 'collection'
         $http.get(`${url}/count`).then(function(response) {
-          vm.pages = Math.ceil(response.value / 10)
+          vm.pages = Math.ceil(response.data.value / 10)
+          tabs.show(vm, {tabList: true, tabCreate: true})
           // console.log('pages =', vm.pages) -> retornando NaN* (deveria retornar o valor de quantidade)
         })
       })
