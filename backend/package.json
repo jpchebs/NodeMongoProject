@@ -10,9 +10,11 @@
   "author": "joao cher",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-query-int": "^2.0.0",
+    "jsonwebtoken": "^7.3.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.13.5",
     "mongoose-paginate": "^5.0.3",
