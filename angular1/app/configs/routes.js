@@ -1,7 +1,8 @@
 angular.module('primeiraApp').config([
   '$stateProvider',
   '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+  '$httpProvider',
+  function($stateProvider, $urlRouterProvider, $httpProvider) {
     $stateProvider.state('dashboard', {
       url: "/dashboard",
       templateUrl: "dashboard/dashboard.html"
@@ -9,7 +10,7 @@ angular.module('primeiraApp').config([
       url: "/billingCycles?page",
       templateUrl: "billingCycle/tabs.html"
     })
-    //$urlRouterProvider.otherwise('/dashboard')
+    $httpProvider.interceptors.push('handleResponseError')
   }
 ]).run([
   '$rootScope',
@@ -38,10 +39,6 @@ angular.module('primeiraApp').config([
             isAuthPage ? $window.location.href = '/' : $location.path('/dashboard')
           }
         })
-        //user.isValid = true
-        //$http.defaults.headers.common.Authorization = user.token
-        //isAuthPage ? $window.location.href = '/' : $location.path('/dashboard')
-
       }
     }
   }
