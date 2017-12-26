@@ -4,12 +4,13 @@
     '$location',
     'msgs',
     'tabs',
+    'consts',
     billingCycleCtrl
   ])
 
-  function billingCycleCtrl($http, $location, msgs, tabs) {
+  function billingCycleCtrl($http, $location, msgs, tabs, consts) {
     const vm = this
-    const url = 'http://localhost:3003/api/billingCycle'
+    const url = 'http://localhost:3003/api/billingCycles'
 
     // Função para manter os objeto atualizados na tela
     vm.refresh = function() {
@@ -169,7 +170,6 @@
       // Os 3 valores são usados para preencher o 'value-box'
       vm.total = vm.credit - vm.debt
     }
-
     vm.refresh()
   }
 })()

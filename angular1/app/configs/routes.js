@@ -9,7 +9,7 @@ angular.module('primeiraApp').config([
       url: "/billingCycles?page",
       templateUrl: "billingCycle/tabs.html"
     })
-    $urlRouterProvider.otherwise('/dashboard')
+    //$urlRouterProvider.otherwise('/dashboard')
   }
 ]).run([
   '$rootScope',
@@ -25,13 +25,23 @@ angular.module('primeiraApp').config([
       const user = auth.getUser()
       const authPage = '/auth.html'
       const isAuthPage = $window.location.href.includes(authPage)
-      
+
       if (!user && !isAuthPage) {
         $window.location.href = authPage
       } else if (user && !user.isValid) {
-        user.isValid = true
-        $http.defaults.headers.common.Authorization = user.token
-        isAuthPage ? $window.location.href = '/' : $location.path('/dashboard')
+        auth.validateToken(user.token, (err, valid) => {
+          if (!valid) {
+            $window.location.href = authPage
+          } else {
+            user.isValid = true
+            $http.defaults.headers.common.Authorization = user.token
+            isAuthPage ? $window.location.href = '/' : $location.path('/dashboard')
+          }
+        })
+        //user.isValid = true
+        //$http.defaults.headers.common.Authorization = user.token
+        //isAuthPage ? $window.location.href = '/' : $location.path('/dashboard')
+
       }
     }
   }

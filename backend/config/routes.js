@@ -22,22 +22,22 @@ module.exports = function(server){
   protectedApi.use(auth)
 
   const billingCycleService = require('../api/billingCycle/billingCycleService')
-    billingCycleService.register(protectedApi, '/billingCycles')
+  billingCycleService.register(protectedApi, '/billingCycles')
 
-    const billingSummaryService = require('../api/billingSummary/billingSummaryService')
-    protectedApi.route('/billingSummary').get(billingSummaryService.getSummary)
+  const billingSummaryService = require('../api/billingSummary/billingSummaryService')
+  protectedApi.route('/billingSummary').get(billingSummaryService.getSummary)
 
 }
 
-  /**
-  // API routes (rotas)
-  const router = express.Router()
-  server.use('/api', router)
+/**
+// API routes (rotas)
+const router = express.Router()
+server.use('/api', router)
 
-  // rotas da API
-  const billingCycleService = require('../api/billingCycle/billingCycleService')
-  billingCycleService.register(router, '/billingCycle')
+// rotas da API
+const billingCycleService = require('../api/billingCycle/billingCycleService')
+billingCycleService.register(router, '/billingCycle')
 
-  const billingSummaryService = require('../api/billingSummary/billingSummaryService')
-  router.route('/billingSummary').get(billingSummaryService.getSummary)
-  */
+const billingSummaryService = require('../api/billingSummary/billingSummaryService')
+router.route('/billingSummary').get(billingSummaryService.getSummary)
+*/
